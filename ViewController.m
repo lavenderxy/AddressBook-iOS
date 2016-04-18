@@ -24,4 +24,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showPicker:(id)sender {
+    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    
+    [self presentModalViewController:picker animated:YES];
+}
+
+-(void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 @end
